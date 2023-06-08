@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "JieEngine/Animal.h"
+#include "JieEngine/Mixer.h"
 
 class Player : public Animal{
     public:
@@ -14,11 +15,8 @@ class Player : public Animal{
 
         Player(const char * FileUrl,short ImageInciseNumber,short PlaySpeed,SDL_Point Position,SDL_Surface * WindowSurface){
             this->SetData(FileUrl,ImageInciseNumber,PlaySpeed,Position,WindowSurface);
+            this->Score = new Mixer("./Resource/Score.mp3",4);
             this->MoveSpeed = 15;
-        }
-
-        Player(const char * FileUrl,SDL_Point Position,SDL_Surface * WindowSurface){
-            this->SetData(FileUrl,Position,WindowSurface);
         }
     
         void Jump(){
@@ -47,12 +45,19 @@ class Player : public Animal{
         }
 
         void Collide(Component * component,SDL_Rect CollideRect,short CollidePosition){
-
+            if(strcmp(component->GetClass(),"Glod") == 0){
+                component->Position.y += WINDOW_H;
+                component->ObjectAnimation->Stop();
+                this->Score->Play();
+            }
         }
 
         void Free(){
             this->ObjectAnimation->Free();
+            this->Score->Free();
         }
+    private:
+        Mixer * Score;
 };
 
 #endif

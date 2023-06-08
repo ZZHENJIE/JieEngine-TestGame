@@ -31,6 +31,7 @@ class Barrier : public Still{
                 this->Position.x = WINDOW_W;
                 this->Position.y = rand() % (WINDOW_H - Size.y);
                 this->GoLd->SetPos(this->Position,this->Size.x);
+                this->GoLd->ObjectAnimation->Play();
             }
             this->Position.x --;
             this->GoLd->Position.x --;
@@ -39,7 +40,7 @@ class Barrier : public Still{
         void Free(){
             ObjectAnimation->Free();
         }
-    private:
+
         Gold * GoLd;
 };
 

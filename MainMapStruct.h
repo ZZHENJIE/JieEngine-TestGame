@@ -36,6 +36,7 @@ class MainMapStruct : public MapStruct{
             for(short i = 0; i < BarrierCount; i++){
                 MapBarrierArray[i].Update();
                 ObjectPlayer->IsCollideDetect(&MapBarrierArray[i]);
+                ObjectPlayer->IsCollideDetect(MapBarrierArray[i].GoLd);
             }
             ObjectPlayer->Update();
             if(ObjectPlayer->Position.x <= 1 || ObjectPlayer->Position.y + ObjectPlayer->Size.y >= WINDOW_H - 1){
