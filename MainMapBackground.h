@@ -24,6 +24,7 @@ class MainMapBackground :public MapBackground{
         */
         void WindowEvent(SDL_Event Event);
     private:
+        SDL_Surface * BackgroundImage;
         SDL_Surface * BackgroundImage1;
         SDL_Rect BackgroundImage1Position;
         SDL_Rect BackgroundImage1PositionTemp;

@@ -15,9 +15,9 @@ class Window : public JieEngine{
         /*
             构造函数 参数为 窗口标题 窗口图标 窗口宽度 窗口高度
         */
-        Window(const char * WindowTitle,const char * WindowIcon,unsigned int Window_W,unsigned int Window_H){
+        Window(const char * WindowTitle,const char * WindowIcon){
             SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
-            this->MWindow = SDL_CreateWindow(WindowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,Window_W,Window_H,SDL_WINDOW_SHOWN);
+            this->MWindow = SDL_CreateWindow(WindowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,WINDOW_W,WINDOW_H,SDL_WINDOW_SHOWN);
             SDL_SetWindowIcon(this->MWindow,SDL_LoadBMP(WindowIcon));
             this->WindowSurface = SDL_GetWindowSurface(this->MWindow);
             

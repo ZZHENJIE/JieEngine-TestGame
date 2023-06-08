@@ -4,7 +4,7 @@
 
 int main(int argc, char * argv[]){
 
-    Window * MWindow = new Window("JieEngine测试",".\\Resource\\Logo.bmp",WINDOW_W,WINDOW_H);
+    Window * MWindow = new Window("JieEngine测试","./Resource/Logo.bmp");
 
     MapBackground * MainMapbackground = new MainMapBackground(MWindow->GetWindowSurface());
 
