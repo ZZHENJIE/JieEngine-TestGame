@@ -1,20 +1,23 @@
-#include "./JieEngine/Window.h"
+#include "JieEngine/Window.h"
+#include "JieEngine/Map.h"
 #include "MainMapBackground.h"
 #include "MainMapStruct.h"
 
-int main(int argc, char * argv[]){
+int main(int argc, char *argv[])
+{   
+    Window * MWindow = new Window("JieEngine","./Resource/Logo.png");
+    
+    MainMapBackground * MainMapbackground = new MainMapBackground(MWindow->GetWindowSurface());
 
-    Window * MWindow = new Window("JieEngine测试","./Resource/Logo.bmp");
+    MainMapStruct * MainMapstruct = new MainMapStruct(MWindow->GetWindowSurface());
 
-    MapBackground * MainMapbackground = new MainMapBackground(MWindow->GetWindowSurface());
+    Map * MainMap = new Map(MainMapbackground,MainMapstruct,MWindow->GetWindowSurface());
 
-    MapStruct * MainMapstruct = new MainMapStruct(MWindow->GetWindowSurface());
-
-    Map * One = new Map(MainMapbackground,MainMapstruct,MWindow->GetWindowSurface());
-
-    MWindow->SetMap(One);
+    MWindow->SetMap(MainMap);
 
     MWindow->ListenEvent();
+
+    MWindow->Free();
 
     return 0;
 }
