@@ -21,7 +21,7 @@ class Barrier : public Still{
             this->Position = Position;
             this->WindowSurface = WindowSurface;
             this->GoLd = new Gold();
-            this->GoLd->SetData("./Resource/Gold.png",6,4,Position,Size.x,WindowSurface);
+            this->GoLd->SetData("./Resource/Gold.png.JieEngine",6,4,Position,Size.x,WindowSurface);
         }
         
         void Update(){

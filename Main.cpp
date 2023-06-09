@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {   
-    Window * MWindow = new Window("JieEngine","./Resource/Logo.png");
+    Window * MWindow = new Window("JieEngine","./Resource/Logo.png.JieEngine");
     
     MainMapBackground * MainMapbackground = new MainMapBackground(MWindow->GetWindowSurface());
 
@@ -16,8 +16,6 @@ int main(int argc, char *argv[])
     MWindow->SetMap(MainMap);
 
     MWindow->ListenEvent();
-
-    MWindow->Free();
 
     return 0;
 }

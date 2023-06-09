@@ -16,9 +16,9 @@ class MainMapBackground : public MapBackground{
             构造函数 参数为 WindowSurface
         */
         MainMapBackground(SDL_Surface * WindowSurface){
-            this->Image_1 = IMG_Load("./Resource/Background_1.png");
-            this->Image_2 = IMG_Load("./Resource/Background_2.png");
-            this->Background_Sound = new Mixer("./Resource/Background.mp3",1);
+            this->Image_1 = Decrypt::DecryptImage("./Resource/Background_1.png.JieEngine");
+            this->Image_2 = Decrypt::DecryptImage("./Resource/Background_2.png.JieEngine");
+            this->Background_Sound = new Mixer("./Resource/Background.mp3.JieEngine",1);
             SetRectInfo(&Image_2_Pos,0,0,WINDOW_W,WINDOW_H);
             SetRectInfo(&Image_2_Pos_Temp,WINDOW_W,0,WINDOW_W,WINDOW_H);
             this->WindowSurface = WindowSurface;

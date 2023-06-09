@@ -21,7 +21,7 @@ class Window : public JieEngine{
             IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
             this->MWindow = SDL_CreateWindow(WindowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,WINDOW_W,WINDOW_H,SDL_WINDOW_SHOWN);
             if(WindowIcon != nullptr){
-                SDL_SetWindowIcon(this->MWindow,IMG_Load(WindowIcon));
+                SDL_SetWindowIcon(this->MWindow,Decrypt::DecryptImage(WindowIcon));
             }
             Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048);
             this->WindowSurface = SDL_GetWindowSurface(this->MWindow);
@@ -75,17 +75,11 @@ class Window : public JieEngine{
         */
         void CloseWindow(){
             SDL_DestroyWindow(this->MWindow);
+            this->CurrentMap->Free();
             IMG_Quit();
             Mix_Quit();
             SDL_Quit();
         }
-        /*
-            释放资源函数
-        */
-        void Free(){
-            this->CurrentMap->Free();
-            SDL_DestroyWindow(this->MWindow);
-        };
     private:
         SDL_Window * MWindow;
         SDL_Event Event;

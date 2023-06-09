@@ -1,7 +1,7 @@
 #ifndef MIXER_H
 #define MIXER_H
 
-#include <SDL2/SDL_mixer.h>
+#include "Decrypt.h"
 
 class Mixer{
     public:
@@ -22,7 +22,7 @@ class Mixer{
             构造函数 参数 文件路经 声道
         */
         Mixer(const char * FileUrl,unsigned short Channel){
-            this->Sound = Mix_LoadWAV(FileUrl);
+            this->Sound = Decrypt::DecryptMixer(FileUrl);
             this->Channel = Channel;
         }
         /*

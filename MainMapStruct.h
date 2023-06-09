@@ -21,12 +21,12 @@ class MainMapStruct : public MapStruct{
         MainMapStruct(SDL_Surface * WindowSurface){
             srand((unsigned)time(NULL));
             this->WindowSurface = WindowSurface;
-            this->ObjectPlayer = new Player("./Resource/Player.png",4,6,{50,50},WindowSurface);
-            this->Move = new Mixer("./Resource/Move.wav",2);
-            this->Die = new Mixer("./Resource/Die.mp3",3);
+            this->ObjectPlayer = new Player("./Resource/Player.png.JieEngine",4,6,{50,50},WindowSurface);
+            this->Move = new Mixer("./Resource/Move.wav.JieEngine",2);
+            this->Die = new Mixer("./Resource/Die.mp3.JieEngine",3);
             this->MapBarrierArray = new Barrier[BarrierCount];
             for(short i = 0; i < BarrierCount; i++){
-                MapBarrierArray[i].SetData("./Resource/Barrier.png",{WINDOW_W + i * 160,(rand() % (WINDOW_H - 260)) + 60},WindowSurface);
+                MapBarrierArray[i].SetData("./Resource/Barrier.png.JieEngine",{WINDOW_W + i * 160,(rand() % (WINDOW_H - 260)) + 60},WindowSurface);
             }
         }
         /*

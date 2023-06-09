@@ -15,7 +15,7 @@ class Player : public Animal{
 
         Player(const char * FileUrl,short ImageInciseNumber,short PlaySpeed,SDL_Point Position,SDL_Surface * WindowSurface){
             this->SetData(FileUrl,ImageInciseNumber,PlaySpeed,Position,WindowSurface);
-            this->Score = new Mixer("./Resource/Score.mp3",4);
+            this->Score = new Mixer("./Resource/Score.mp3.JieEngine",4);
             this->MoveSpeed = 15;
         }
     
