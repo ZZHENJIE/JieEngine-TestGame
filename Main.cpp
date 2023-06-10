@@ -1,5 +1,5 @@
-#include "JieEngine/Window.h"
-#include "JieEngine/Map.h"
+#include "include/Window.h"
+#include "include/Map.h"
 #include "MainMapBackground.h"
 #include "MainMapStruct.h"
 

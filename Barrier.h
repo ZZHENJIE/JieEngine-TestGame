@@ -1,7 +1,7 @@
 #ifndef BARRIER_H
 #define BARRIER_H
 
-#include "JieEngine/Still.h"
+#include "include/Still.h"
 #include "Gold.h"
 
 class Barrier : public Still{

@@ -1,8 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "JieEngine/Animal.h"
-#include "JieEngine/Mixer.h"
+#include "include/Animal.h"
+#include "include/Mixer.h"
 
 class Player : public Animal{
     public:

@@ -1,8 +1,8 @@
 #ifndef MAINMAPBACKGROUND_H
 #define MAINMAPBACKGROUND_H
 
-#include "JieEngine/MapBackground.h"
-#include "JieEngine/Mixer.h"
+#include "include/MapBackground.h"
+#include "include/Mixer.h"
 
 class MainMapBackground : public MapBackground{
     public:

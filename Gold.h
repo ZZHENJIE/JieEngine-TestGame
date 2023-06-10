@@ -1,7 +1,7 @@
 #ifndef GOLD_H
 #define GOLD_H
 
-#include "JieEngine/Still.h"
+#include "include/Still.h"
 
 class Gold : public Still{
     public:

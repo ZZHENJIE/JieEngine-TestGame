@@ -1,8 +1,8 @@
 #ifndef MAINMAPSTRUCT_H
 #define MAINMAPSTRUCT_H
 
-#include "JieEngine/MapStruct.h"
-#include "JieEngine/Mixer.h"
+#include "include/MapStruct.h"
+#include "include/Mixer.h"
 #include "Player.h"
 #include "Barrier.h"
 #include <time.h>
