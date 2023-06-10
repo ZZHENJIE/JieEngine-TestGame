@@ -1,8 +1,6 @@
 # 杰引擎 JieEngine-TestGame
 
-![](./Resource/Logo.png)
-
-![](./Resource/Game.png)
+![](./DecryptResource/Logo.png)
 
 ## 玩法
 控制坤哥避开障碍物 不被推出地图外
