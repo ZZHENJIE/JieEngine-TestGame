@@ -1,8 +1,8 @@
 #ifndef MAINMAPSTRUCT_H
 #define MAINMAPSTRUCT_H
 
-#include "include/MapStruct.h"
-#include "include/Mixer.h"
+#include "JieEngine/MapStruct.h"
+#include "MainBackground.h"
 #include "Player.h"
 #include "Barrier.h"
 #include <time.h>
@@ -21,6 +21,7 @@ class MainMapStruct : public MapStruct{
         MainMapStruct(SDL_Surface * WindowSurface){
             srand((unsigned)time(NULL));
             this->WindowSurface = WindowSurface;
+            this->Mainbackground = new MainBackground(this->WindowSurface);
             this->ObjectPlayer = new Player("./Resource/Player.png.JieEngine",4,6,{50,50},WindowSurface);
             this->Move = new Mixer("./Resource/Move.wav.JieEngine",2);
             this->Die = new Mixer("./Resource/Die.mp3.JieEngine",3);
@@ -33,6 +34,7 @@ class MainMapStruct : public MapStruct{
             每帧更新函数
         */
         void Update(){
+            this->Mainbackground->Update();
             for(short i = 0; i < BarrierCount; i++){
                 MapBarrierArray[i].Update();
                 ObjectPlayer->IsCollideDetect(&MapBarrierArray[i]);
@@ -49,7 +51,7 @@ class MainMapStruct : public MapStruct{
         /*
             接收事件 除了退出事件 其它事件都接收的到
         */
-        void WindowEvent(SDL_Event Event){
+        void WindowEvent(SDL_Event Event,MapStruct *& MWindowMapStruct){
             switch(Event.key.keysym.sym){
                 case SDLK_w:{
                     ObjectPlayer->Jump();
@@ -78,6 +80,7 @@ class MainMapStruct : public MapStruct{
         */
         void Free(){
             ObjectPlayer->Free();
+            this->Mainbackground->Free();
             Move->Free();
             Die->Free();
             for(short i = 0; i < BarrierCount; i++){
@@ -90,6 +93,7 @@ class MainMapStruct : public MapStruct{
         Mixer * Move;
         Mixer * Die;
         short BarrierCount = 4;
+        MainBackground * Mainbackground;
 };
 
 #endif

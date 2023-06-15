@@ -4,7 +4,6 @@
 #define WINDOW_W 600
 #define WINDOW_H 500
 
-#include <SDL2/SDL.h>
 #include <iostream>
 #include "Decrypt.h"
 

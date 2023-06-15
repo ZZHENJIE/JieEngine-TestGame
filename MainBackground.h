@@ -1,27 +1,27 @@
-#ifndef MAINMAPBACKGROUND_H
-#define MAINMAPBACKGROUND_H
+#ifndef MAINBACKGROUND_H
+#define MAINBACKGROUND_H
 
-#include "include/MapBackground.h"
-#include "include/Mixer.h"
+#include "JieEngine/MapBackground.h"
+#include "JieEngine/Mixer.h"
 
-class MainMapBackground : public MapBackground{
+class MainBackground : MapBackground{
     public:
         /*
             获取类名
         */
         virtual const char * GetClass(){
-            return "MainMapBackground";
+            return "MainBackground";
         }
         /*
-            构造函数 参数为 WindowSurface
+            构造函数
         */
-        MainMapBackground(SDL_Surface * WindowSurface){
+        MainBackground(SDL_Surface * WindowSurface){
+            this->WindowSurface = WindowSurface;
             this->Image_1 = Decrypt::DecryptImage("./Resource/Background_1.png.JieEngine");
             this->Image_2 = Decrypt::DecryptImage("./Resource/Background_2.png.JieEngine");
             this->Background_Sound = new Mixer("./Resource/Background.mp3.JieEngine",1);
             SetRectInfo(&Image_2_Pos,0,0,WINDOW_W,WINDOW_H);
             SetRectInfo(&Image_2_Pos_Temp,WINDOW_W,0,WINDOW_W,WINDOW_H);
-            this->WindowSurface = WindowSurface;
             this->Background_Sound->Play(10000);
         }
         /*
@@ -39,12 +39,6 @@ class MainMapBackground : public MapBackground{
                 Image_2_Pos.x = 0;
                 Image_2_Pos_Temp.x = WINDOW_W;
             }
-        }
-        /*
-            接收事件 除了退出事件 其它事件都接收的到
-        */
-        void WindowEvent(SDL_Event Event){
-            
         }
         /*
             释放资源函数
